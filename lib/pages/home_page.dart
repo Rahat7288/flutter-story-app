@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.keyboard_control,
-                        size: 20.0,
+                        size: 30.0,
                         color: Colors.white,
                       ))
                 ],
@@ -130,6 +130,65 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
               ],
+            ),
+
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Favourite",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.keyboard_control,
+                            size: 30.0,
+                            color: Colors.white,
+                          ))
+                    ],
+                  ),
+                  Row(
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.blueAccent,
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: const Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 22.0, vertical: 6.0),
+                            child: Text(
+                              "Latest",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15.0,
+                      ),
+                      const Text(
+                        "9+ Stories",
+                        style: TextStyle(color: Colors.blueAccent),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),
