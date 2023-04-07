@@ -2,7 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:story_ui/constant/custom_icons.dart';
-import '../custom_data/data.dart';
+import 'package:story_ui/models/story_model.dart';
+// import '../custom_data/data.dart';
 import '../widgets/card_scroll_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,12 +17,12 @@ class HomePage extends StatefulWidget {
 // var widgetAspectRation = cardAspectRatio * 1.2;
 
 class _HomePageState extends State<HomePage> {
-  var currentPage = images.length - 1.0;
+  var currentPage = stories.length - 1.0;
 
   @override
   Widget build(BuildContext context) {
     // implementing the page controller
-    PageController controller = PageController(initialPage: images.length - 1);
+    PageController controller = PageController(initialPage: stories.length - 1);
     controller.addListener(() {
       setState(() {
         currentPage = controller.page as double;
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> {
                 CardScrollWidget(currentPage),
                 Positioned.fill(
                   child: PageView.builder(
-                    itemCount: images.length,
+                    itemCount: stories.length,
                     controller: controller,
                     reverse: true,
                     itemBuilder: (context, indes) {
@@ -133,7 +134,8 @@ class _HomePageState extends State<HomePage> {
             ),
 
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Favourite",
                         style: TextStyle(
                             color: Colors.white,

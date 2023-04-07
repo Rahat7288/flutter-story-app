@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:story_ui/custom_data/data.dart';
+// import 'package:story_ui/custom_data/data.dart';
+import 'package:story_ui/models/story_model.dart';
 
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRation = cardAspectRatio * 1.2;
@@ -31,7 +32,7 @@ class CardScrollWidget extends StatelessWidget {
 
           List<Widget> cardList = [];
 
-          for (var i = 0; i < images.length; i++) {
+          for (var i = 0; i < stories.length; i++) {
             var delta = i - currentPages;
             bool isOnRight = delta > 0;
 
@@ -47,7 +48,7 @@ class CardScrollWidget extends StatelessWidget {
               start: start,
               textDirection: TextDirection.rtl,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
+                borderRadius: BorderRadius.circular(30.0),
                 child: Container(
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -65,7 +66,7 @@ class CardScrollWidget extends StatelessWidget {
                       fit: StackFit.expand,
                       children: <Widget>[
                         Image.asset(
-                          images[i],
+                          stories[i].images,
                           fit: BoxFit.cover,
                         ),
                         Align(
@@ -78,7 +79,7 @@ class CardScrollWidget extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 16.0, vertical: 8.0),
                                 child: Text(
-                                  title[i],
+                                  stories[i].title,
                                   style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 25.0,
