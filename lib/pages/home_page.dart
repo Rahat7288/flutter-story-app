@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:story_ui/constant/custom_icons.dart';
 import 'package:story_ui/models/story_model.dart';
 import 'package:story_ui/pages/single_story.dart';
+import 'package:story_ui/widgets/fav_scroll_widgets.dart';
 // import '../custom_data/data.dart';
 import '../widgets/card_scroll_widget.dart';
 
@@ -204,6 +205,23 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 150.0,
+                    child: ListView.builder(
+                      // padding: EdgeInsets.symmetric(horizontal: 20.0),
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: stories.length,
+                      itemBuilder: (BuildContext context, int index) => Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(child: FavScroll(stories[index])),
+                      ),
+                    ),
+                  )
                 ],
               ),
             )
