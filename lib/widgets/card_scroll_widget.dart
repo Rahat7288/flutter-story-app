@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // import 'package:story_ui/custom_data/data.dart';
 import 'package:story_ui/models/story_model.dart';
+import 'package:story_ui/pages/single_story.dart';
 
 var cardAspectRatio = 12.0 / 16.0;
 var widgetAspectRation = cardAspectRatio * 1.2;
@@ -106,7 +107,7 @@ class CardScrollWidget extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         )

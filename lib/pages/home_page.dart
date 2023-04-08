@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:story_ui/constant/custom_icons.dart';
 import 'package:story_ui/models/story_model.dart';
+import 'package:story_ui/pages/single_story.dart';
 // import '../custom_data/data.dart';
 import '../widgets/card_scroll_widget.dart';
 
@@ -126,7 +127,21 @@ class _HomePageState extends State<HomePage> {
                     controller: controller,
                     reverse: true,
                     itemBuilder: (context, indes) {
-                      return Container();
+                      return GestureDetector(
+                        // to work with the gestureDetector inside the page view
+                        // we have to add the behavior
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          // print('hello');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    SingleStory(storyModel: stories[indes]),
+                              ));
+                        },
+                        child: Container(),
+                      );
                     },
                   ),
                 )
