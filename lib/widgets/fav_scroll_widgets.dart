@@ -17,15 +17,35 @@ Widget FavScroll(StoryModel storyModel) {
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Text(
-                storyModel.title,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.w500),
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8.0),
+                  child: Text(
+                    storyModel.title,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, bottom: 12.0),
+                  child: Text(
+                    storyModel.artur,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
         ],

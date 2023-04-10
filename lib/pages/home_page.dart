@@ -2,11 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:story_ui/constant/custom_icons.dart';
+import 'package:story_ui/helper/category_button_model.dart';
 import 'package:story_ui/models/story_model.dart';
 import 'package:story_ui/pages/single_story.dart';
 import 'package:story_ui/widgets/fav_scroll_widgets.dart';
 // import '../custom_data/data.dart';
 import '../widgets/card_scroll_widget.dart';
+import '../widgets/cat_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,6 +36,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: const Color(0xFF2d3447),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
@@ -223,6 +226,42 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 ],
+              ),
+            ),
+
+            const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Text(
+                "categories",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
+
+            const SizedBox(
+              height: 20.0,
+            ),
+
+            SizedBox(
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: catButtons.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: MediaQuery.of(context).size.width /
+                      (MediaQuery.of(context).size.height / 4),
+                  // crossAxisSpacing: 2,
+                  // mainAxisSpacing: 2,
+                ),
+                itemBuilder: ((context, index) => SizedBox(
+                      height: 100,
+                      child: CategoryButton(
+                        catButtons[index],
+                      ),
+                    )),
               ),
             )
           ],
